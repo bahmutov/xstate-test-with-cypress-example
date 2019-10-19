@@ -1,0 +1,24 @@
+{
+  "name": "xstate-test-with-cypress-example",
+  "version": "1.0.0",
+  "description": "Playing with model-based tests in Cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bahmutov/xstate-test-with-cypress-example.git"
+  },
+  "keywords": [
+    "xstate",
+    "cypress",
+    "cypress-example"
+  ],
+  "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bahmutov/xstate-test-with-cypress-example/issues"
+  },
+  "homepage": "https://github.com/bahmutov/xstate-test-with-cypress-example#readme"
+}
