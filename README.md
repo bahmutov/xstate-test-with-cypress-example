@@ -7,6 +7,14 @@
 yarn
 ```
 
+## Tests
+
+Start the app and tests with
+
+```shell
+npm run dev
+```
+
 ## Links
 
 - [@xstate/test](https://github.com/davidkpiano/xstate/tree/master/packages/xstate-test)

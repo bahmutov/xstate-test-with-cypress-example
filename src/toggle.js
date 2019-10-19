@@ -2,13 +2,17 @@ import React from 'react'
 import { interpret } from 'xstate'
 import { toggleMachine } from './model'
 
+if (window.Cypress) {
+  window.toggleMachine = toggleMachine
+}
+
 export default class Toggle extends React.Component {
   state = {
     current: toggleMachine.initialState
   }
 
   service = interpret(toggleMachine).onTransition(current => {
-    console.log('transition, current is', current)
+    console.log('app: transition, current is', current)
     this.setState({ current })
   })
 

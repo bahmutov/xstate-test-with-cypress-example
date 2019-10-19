@@ -6,6 +6,7 @@ const toggleModel = createModel(toggleMachine).withEvents({
   TOGGLE: {
     exec: () => {
       console.log('test toggle model TOGGLE')
+      debugger
       cy.log('clicking button')
       cy.get('button').click()
     }
@@ -37,11 +38,18 @@ describe('toggle', () => {
     })
   })
 
-  after(() => {
-    cy.log('checking full coverage')
-    console.log(toggleModel.testCoverage())
+  afterEach(() => {
+    cy.window()
+      .its('toggleMachine')
+      .then(appMachine => {
+        console.log('got app machine', appMachine)
+        console.log('test machine', toggleModel)
+      })
   })
-  // it('should have full coverage', () => {
-  //   return toggleModel.testCoverage()
-  // })
+
+  after(() => {
+    cy.log('**checking model test coverage**').then(() => {
+      toggleModel.testCoverage()
+    })
+  })
 })
