@@ -6,7 +6,9 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cy:open": "cypress open"
+    "start": "parcel serve ./src/index.html",
+    "cy:open": "cypress open",
+    "dev": "start-test 1234 cy:open"
   },
   "repository": {
     "type": "git",
@@ -24,11 +26,19 @@
   },
   "homepage": "https://github.com/bahmutov/xstate-test-with-cypress-example#readme",
   "dependencies": {
+    "parcel-bundler": "1.12.4",
+    "react": "^16.0.0",
+    "react-dom": "16.10.2",
     "xstate": "4.6.7"
   },
   "devDependencies": {
     "@xstate/test": "0.1.0",
+    "babel-core": "6.26.3",
+    "babel-plugin-transform-class-properties": "6.24.1",
+    "babel-preset-react": "6.24.1",
+    "babel-preset-react-app": "9.0.2",
     "cypress": "3.4.1",
+    "start-server-and-test": "1.10.6",
     "strip-ansi": "5.2.0"
   }
 }

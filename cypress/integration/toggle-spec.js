@@ -4,9 +4,10 @@ import { toggleMachine } from '../../src/model'
 
 const toggleModel = createModel(toggleMachine).withEvents({
   TOGGLE: {
-    exec: page => {
-      // await page.click('input')
-      debugger
+    exec: () => {
+      console.log('test toggle model TOGGLE')
+      cy.log('clicking button')
+      cy.get('button').click()
     }
   }
 })
@@ -17,21 +18,29 @@ describe('toggle', () => {
   testPlans.forEach(plan => {
     describe(plan.description, () => {
       plan.paths.forEach(path => {
-        it(path.description, () => {
-          // do any setup, then...
+        console.log(path)
+        if (!path.segments.length) {
+          return
+        }
 
-          // await path.test(page)
-          console.log(path)
-          if (!path.segments.length) {
-            return
-          }
-          debugger
-          path.test()
+        it(path.description, () => {
+          cy.visit('/')
+          cy.contains('button', 'Off')
+            .should('be.visible')
+            .then(() => {
+              // the page has loaded
+              cy.log('**starting path test**')
+              return path.test()
+            })
         })
       })
     })
   })
 
+  after(() => {
+    cy.log('checking full coverage')
+    console.log(toggleModel.testCoverage())
+  })
   // it('should have full coverage', () => {
   //   return toggleModel.testCoverage()
   // })
